@@ -21,7 +21,30 @@ static	std::string	get_time()
 	time_t	now = time(0);
 	tm		*time_now = localtime(&now);
 
-	return (std::to_string(1970 + time_now->tm_year));
+	std::string	ans;
+
+	ans += std::to_string(time_now->tm_year + 1900);
+	if (time_now->tm_mon + 1 < 10)
+		ans += '0';
+	ans += std::to_string(time_now->tm_mon + 1);
+	if (time_now->tm_mday + 1 < 10)
+		ans += '0';
+	ans += std::to_string(time_now->tm_mday);
+
+	ans += "_";
+
+	if (time_now->tm_hour < 10)
+		ans += '0';
+	ans += std::to_string(time_now->tm_hour);
+	if (time_now->tm_min < 10)
+		ans += '0';
+	ans += std::to_string(time_now->tm_min);
+	if (time_now->tm_sec < 10)
+		ans += '0';
+	ans += std::to_string(time_now->tm_sec);
+
+
+	return (ans);
 }
 
 Account::Account(int initial_deposit)
