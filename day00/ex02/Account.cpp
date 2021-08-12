@@ -1,6 +1,7 @@
 #include "Account.hpp"
 #include <string>
 #include <iostream>
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -17,7 +18,10 @@ Account::Account(/* args */)
 
 static	std::string	get_time()
 {
-	return ("19920104_091532");
+	time_t	now = time(0);
+	tm		*time_now = localtime(&now);
+
+	return (std::to_string(1970 + time_now->tm_year));
 }
 
 Account::Account(int initial_deposit)

@@ -1,15 +1,20 @@
-NAME = megaphone
+NAME = phonebook
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++11
 
+SRCS_DIRS = .
 
-SRCS = megaphone.cpp
+HDRS_DIRS = .
 
-OBJS = $(patsubst %.cpp, %.o, $(SRCS))
+OBJS_DIR = ./objs
 
-HDRS = 
+SRCS = $(wildcard $(addsuffix /*.cpp, $(SRCS_DIRS)))
+
+HDRS = $(wildcard $(addsuffix /*.hpp, $(HDRS_DIRS)))
+
+OBJS = $(addprefix objs/, $(notdir $(patsubst %.cpp, %.o, $(SRCS))))
 
 VPATH = $(SRCS_DIRS)
 
