@@ -1,0 +1,102 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+
+	"My Class Snippet": {
+		"prefix": ["class", "cc", "cl"],
+		"body": [
+"class ${1:${TM_FILENAME/[.].*//}}\n\
+{\n\
+private:\n\
+\n\
+public:\n\
+	${1:${TM_FILENAME/[.].*//}}();\n\
+	${1:${TM_FILENAME/[.].*//}}(const ${1:${TM_FILENAME/[.].*//}}& copy);\n\
+	~${1:${TM_FILENAME/[.].*//}}();\n\
+	\n\
+	${1:${TM_FILENAME/[.].*//}}&	operator=(const ${1:${TM_FILENAME/[.].*//}}& copy);\n\
+};\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::${1:${TM_FILENAME/[.].*//}}()\n\
+{\n\
+\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::${1:${TM_FILENAME/[.].*//}}(const ${1:${TM_FILENAME/[.].*//}}& copy)\n\
+{\n\
+	if (this == &copy)\n\
+		return ;\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::~${1:${TM_FILENAME/[.].*//}}()\n\
+{\n\
+\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}&	${1:${TM_FILENAME/[.].*//}}::operator=(const ${1:${TM_FILENAME/[.].*//}}& copy)\n\
+{\n\
+	if (this == &copy)\n\
+		return (*this);\n\
+}\n\
+"],
+		"description": "class snippet"
+	  },
+
+	  "Header creator": {
+		"prefix": ["hh"],
+		"body": [
+"#pragma once\n\
+#include <iostream>\n\
+#include <string>\n\
+\n\
+class ${1:${TM_FILENAME/[.].*//}}\n\
+{\n\
+private:\n\
+\n\
+public:\n\
+	${1:${TM_FILENAME/[.].*//}}();\n\
+	${1:${TM_FILENAME/[.].*//}}(const ${1:${TM_FILENAME/[.].*//}}& copy);\n\
+	~${1:${TM_FILENAME/[.].*//}}();\n\
+	\n\
+	${1:${TM_FILENAME/[.].*//}}&	operator=(const ${1:${TM_FILENAME/[.].*//}}& copy);\n\
+};\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::${1:${TM_FILENAME/[.].*//}}()\n\
+{\n\
+\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::${1:${TM_FILENAME/[.].*//}}(const ${1:${TM_FILENAME/[.].*//}}& copy)\n\
+{\n\
+	if (this == &copy)\n\
+		return ;\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}::~${1:${TM_FILENAME/[.].*//}}()\n\
+{\n\
+\n\
+}\n\
+\n\
+${1:${TM_FILENAME/[.].*//}}&	${1:${TM_FILENAME/[.].*//}}::operator=(const ${1:${TM_FILENAME/[.].*//}}& copy)\n\
+{\n\
+	if (this == &copy)\n\
+		return (*this);\n\
+}\n\
+"],
+		"description": "class snippet"
+	  }
+
+
+}
