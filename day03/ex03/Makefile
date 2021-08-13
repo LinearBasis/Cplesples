@@ -4,7 +4,7 @@ MAIN = main.cpp
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 SRCS_DIRS = .
 
