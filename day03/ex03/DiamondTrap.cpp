@@ -13,7 +13,7 @@ DiamondTrap::DiamondTrap(std::string name)
 
 DiamondTrap::~DiamondTrap()
 {
-
+	
 }
 
 
