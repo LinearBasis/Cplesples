@@ -13,3 +13,34 @@ int		main()
 	dnicki2.attack("Moshe Groot");
 	dnicki3.highFivesGuys();
 }
+
+class a
+{
+public:
+	a();
+	~a();
+	void f();
+	int k;
+};
+
+class b
+{
+public:
+	b();
+	~b();
+	void f();
+	int k;
+};
+
+class c : public a, public b
+{
+public:
+	c();
+	~c();
+};
+
+int	main()
+{
+	c c_obj;
+	c_obj.a::f();
+}

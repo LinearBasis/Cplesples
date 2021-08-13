@@ -13,5 +13,4 @@ int		main()
 	dnicki2.attack("Moshe Groot");
 	dnicki2.guardGate();
 	dnicki3.guardGate();
-
 }

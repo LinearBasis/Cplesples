@@ -2,13 +2,12 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 private:
 
 public:
 	ScavTrap(std::string name = "Dacia Nicki");
-	~ScavTrap();
 	void		guardGate();
 	void		attack(const std::string& target);
 };
