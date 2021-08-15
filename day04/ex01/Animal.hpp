@@ -7,6 +7,7 @@ class Animal
 {
 protected:
 	std::string	_type;
+	
 public:
 	Animal(std::string type = "No type");
 	Animal(const Animal& copy);
