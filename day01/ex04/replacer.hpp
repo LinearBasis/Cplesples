@@ -1,4 +1,4 @@
 #pragma once
 #include <string>
 
-std::string	replace(std::string original, std::string from, std::string to);
+void	replace(std::string filename, std::string s1, std::string s2);

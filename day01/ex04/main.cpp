@@ -4,5 +4,7 @@
 
 int		main()
 {
-	std::cout << replace("aaa aaa", "aa", "aab") << std::endl;
+	system("cp test2 test");
+	// system("cat test");
+	replace("test", "ab", "aab");
 }

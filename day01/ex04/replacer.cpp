@@ -1,34 +1,53 @@
 #include "replacer.hpp"
 #include <iostream>
-std::string	replace(std::string str, std::string from, std::string to)
-{
-	std::string::iterator	iter_str;
-	std::string::iterator	iter1;
-	std::string::iterator	iter2;
+#include <cstring>
+#include <string>
+#include <fstream>
 
-	iter_str = str.begin();
-	while (iter_str != str.end())
+std::string	replace_helper(std::string str, std::string from, std::string to)
+{
+	for (size_t i = 0; i < str.size(); i++)
 	{
-		if (*iter_str == *from.begin())
+		// std::cout << i << " : ";
+		// std::cout << str << std::endl;
+		if (!strncmp(str.c_str() + i, from.c_str(), from.size()))
 		{
-			iter1 = iter_str;
-			iter2 = from.begin();
-			while (iter1 != str.end() && iter2 != from.end() && *iter1 == *iter2)
-			{
-				iter1++;
-				iter2++;
-			}
-			if (iter2 == from.end())
-			{
-				str.erase(iter_str, iter_str + from.size());
-				str.insert(iter_str, to.begin(), to.end());
-				iter_str += to.size();
-			}
-			else
-				iter_str++;
+			str.erase(i, from.size());
+			str.insert(i, to);
+			i += (to.size() - 1);
 		}
-		else
-			iter_str++;
 	}
 	return (str);
+}
+
+void	replace(std::string filename, std::string s1, std::string s2)
+{
+	std::ifstream	fin(filename);
+
+
+	if (!fin.is_open())
+	{
+		std::cout << "File open error\n";
+		return ;
+	}
+	std::string	ans("");
+	std::string tmp;
+	while (std::getline(fin, tmp))
+	{
+		ans += tmp;
+		ans += "\n";
+	}
+	std::cout << ans << std::endl;
+	ans = replace_helper(ans, s1, s2);
+
+	fin.close();
+	std::ofstream	fout(filename);
+
+	if (!fout.is_open())
+	{
+		std::cout << "File open error\n";
+		return ;
+	}
+	fout << ans;
+	return ;
 }
