@@ -12,5 +12,8 @@ public:
 	~Brain();
 	
 	Brain&	operator=(const Brain& copy);
+
+	std::string	getIdea(int id);
+	void		setIdea(std::string str, int id);
 };
 
