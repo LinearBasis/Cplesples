@@ -8,7 +8,7 @@ private:
 
 public:
 	FragTrap(std::string name = "Dacia Nicki");
-	~FragTrap();
+	virtual ~FragTrap();
 	void	attack(const std::string& target);
 	void	highFivesGuys(void);
 };
