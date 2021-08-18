@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 {
@@ -6,12 +7,14 @@ std::ostream&	operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 	return (out);
 }
 
-Bureaucrat::Bureaucrat(std::string name) : _name(name), _grade(Bureaucrat::min_grade)
+Bureaucrat::Bureaucrat(std::string name)
+	: _name(name), _grade(Bureaucrat::min_grade)
 {
 
 }
 
-Bureaucrat::Bureaucrat(int grade, std::string name): _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(int grade, std::string name)
+	: _name(name), _grade(grade)
 {
 	if (grade < Bureaucrat::max_grade)
 	{
@@ -23,7 +26,8 @@ Bureaucrat::Bureaucrat(int grade, std::string name): _name(name), _grade(grade)
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& copy) : _name(copy._name), _grade(copy._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+	: _name(copy._name), _grade(copy._grade)
 {
 
 }
@@ -78,5 +82,16 @@ const char*	Bureaucrat::GradeTooLowException::what() const throw()
 
 void				Bureaucrat::SignForm(Form& form) const
 {
-
+	try
+	{
+		form.beSigned(*this);
+		std::cerr << this->_name << " signs "
+			<< form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " cannot sign "
+			<< form.getName() << " because " << e.what() << std::endl;
+	}
+	
 }

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -28,6 +30,7 @@ public:
 	public:
 		virtual const char* what() const throw();
 	};
+	
 
 
 	Bureaucrat(std::string name = "Dacia Nicki");
