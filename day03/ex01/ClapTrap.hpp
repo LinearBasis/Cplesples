@@ -12,7 +12,7 @@ protected:
 	int			_attack;
 public:
 	ClapTrap(std::string name = "Dacia Nicki");
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap(const ClapTrap& claptrap);
 	ClapTrap&	operator=(const ClapTrap& claptrap);
 

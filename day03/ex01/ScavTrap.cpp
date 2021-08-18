@@ -2,10 +2,31 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	_hp = 100;
-	_energy = 50;
-	_attack = 20;
+	this->_hp = 100;
+	this->_energy = 50;
+	this->_attack = 20;
 }
+
+ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
+{
+
+}
+
+ScavTrap::~ScavTrap()
+{
+	
+}
+
+// ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
+// {
+	// if (this == &copy)
+	// 	return (*this);
+	// this->_name = copy._name;
+	// this->_hp = copy._hp;
+	// this->_energy = copy._energy;
+	// this->_attack = copy._attack;
+	
+// }
 
 void	ScavTrap::guardGate()
 {

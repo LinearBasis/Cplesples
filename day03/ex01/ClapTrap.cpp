@@ -23,6 +23,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& claptrap)
 {
+	// std::cout << "ClapTrap operator=" << std::endl;
 	this->_name = claptrap._name;
 	this->_hp = claptrap._hp;
 	this->_energy = claptrap._energy;
