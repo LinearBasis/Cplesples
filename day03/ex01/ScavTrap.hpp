@@ -12,10 +12,10 @@ public:
 	ScavTrap(std::string name = "Dacia Nicki");
 	ScavTrap(const ScavTrap& copy);
 	virtual ~ScavTrap();
+	ScavTrap&	operator=(const ScavTrap& copy);
 
 	void		guardGate();
 	void		attack(const std::string& target);
-	// ScavTrap&	operator=(const ScavTrap& copy);
 };
 
 

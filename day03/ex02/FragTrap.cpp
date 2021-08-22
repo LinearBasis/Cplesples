@@ -12,6 +12,19 @@ FragTrap::~FragTrap()
 
 }
 
+FragTrap::FragTrap(const FragTrap& copy)
+{
+	this->ClapTrap::operator=(copy);
+}
+
+
+FragTrap&	FragTrap::operator=(const FragTrap& copy)
+{
+	if (this == &copy)
+		return (*this);
+	this->ClapTrap::operator=(copy);
+	return (*this);
+}
 
 void		FragTrap::attack(const std::string& target)
 {

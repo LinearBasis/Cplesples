@@ -2,13 +2,16 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 private:
 
 public:
 	FragTrap(std::string name = "Dacia Nicki");
-	~FragTrap();
+	FragTrap(const FragTrap& copy);
+	virtual ~FragTrap();
+	FragTrap&	operator=(const FragTrap& copy);
+	
 	void	attack(const std::string& target);
 	void	highFivesGuys(void);
 };

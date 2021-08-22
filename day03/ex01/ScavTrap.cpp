@@ -17,16 +17,13 @@ ScavTrap::~ScavTrap()
 	
 }
 
-// ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
-// {
-	// if (this == &copy)
-	// 	return (*this);
-	// this->_name = copy._name;
-	// this->_hp = copy._hp;
-	// this->_energy = copy._energy;
-	// this->_attack = copy._attack;
-	
-// }
+ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
+{
+	if (this == &copy)
+		return (*this);
+	this->ClapTrap::operator=(copy);
+	return (*this);
+}
 
 void	ScavTrap::guardGate()
 {
