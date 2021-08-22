@@ -26,3 +26,16 @@ void	DiamondTrap::whoAmI()
 	std::cout << "I am " << this->_name << std::endl;
 	std::cout << "Claptrap is " << ClapTrap::_name << std::endl;
 }
+
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& copy)
+{
+	if (this == &copy)
+		return (*this);
+	this->ClapTrap::operator=(copy);
+	return (*this);
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& copy)
+{
+	this->ClapTrap::operator=(copy);
+}

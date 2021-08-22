@@ -11,6 +11,8 @@ public:
 
 	DiamondTrap(std::string name = "Dacia Nicki");
 	~DiamondTrap();
+	DiamondTrap&	operator=(const DiamondTrap& copy);
+	DiamondTrap(const DiamondTrap& copy);
 
 	void	attack(const std::string& target);
 	void	whoAmI();
