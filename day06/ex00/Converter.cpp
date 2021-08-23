@@ -63,6 +63,4 @@ int			Converter::toInt(std::string str) const
 	{
 		throw std::invalid_argument("impossible");
 	}
-	
-
 }

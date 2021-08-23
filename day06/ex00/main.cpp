@@ -10,7 +10,7 @@ int		main(int argc, char *argv[])
 	{
 		std::cout << "char: " << conv.toChar(argv[1]) << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -19,7 +19,7 @@ int		main(int argc, char *argv[])
 	{
 		std::cout << "int: " << conv.toInt(argv[1]) << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -28,7 +28,7 @@ int		main(int argc, char *argv[])
 	{
 		std::cout << "float: " << conv.toFloat(argv[1]) << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
@@ -37,7 +37,7 @@ int		main(int argc, char *argv[])
 	{
 		std::cout << "double: " << conv.toDouble(argv[1]) << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
