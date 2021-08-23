@@ -25,12 +25,26 @@ Converter&	Converter::operator=(const Converter& copy)
 
 float		Converter::toFloat(std::string str) const
 {
-	return (std::stof(str));
+	try
+	{
+		return (std::stof(str));
+	}
+	catch(const std::exception& e)
+	{
+		throw std::invalid_argument("impossible");
+	}
 }
 
 double		Converter::toDouble(std::string str) const
 {
-	return (std::stod(str));
+	try
+	{
+		return (std::stod(str));
+	}
+	catch(const std::exception& e)
+	{
+		throw std::invalid_argument("impossible");
+	}
 }
 
 char		Converter::toChar(std::string str) const

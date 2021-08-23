@@ -26,7 +26,7 @@ int		main(int argc, char *argv[])
 
 	try
 	{
-		std::cout << "float: " << conv.toFloat(argv[1]) << std::endl;
+		std::cout << "float: " << conv.toFloat(argv[1]) << "f" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
