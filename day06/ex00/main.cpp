@@ -8,7 +8,7 @@ int		main(int argc, char *argv[])
 
 	try
 	{
-		std::cout << "char: " << conv.toChar(argv[1]) << std::endl;
+		std::cout << "char: " << std::string("\'") + conv.toChar(argv[1]) + "\'" << std::endl;
 	}
 	catch (const std::exception& e)
 	{

@@ -49,9 +49,7 @@ double		Converter::toDouble(std::string str) const
 
 char		Converter::toChar(std::string str) const
 {
-
 	int	a;
-
 
 	try
 	{
@@ -71,7 +69,7 @@ int			Converter::toInt(std::string str) const
 {
 	try
 	{
-		return (static_cast<char>(std::stoi(str)));
+		return ((std::stoi(str)));
 	}
 	catch(const std::exception& e)
 	{
