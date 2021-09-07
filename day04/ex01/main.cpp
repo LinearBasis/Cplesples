@@ -5,6 +5,7 @@ int main()
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	// Animal	an();
 
 	std::cout << "Cat's ptr type - "<< i->getType() << " " << std::endl;
 	std::cout << "Dog's ptr type - "<< j->getType() << " " << std::endl;

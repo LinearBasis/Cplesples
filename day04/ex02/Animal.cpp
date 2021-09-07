@@ -23,12 +23,6 @@ Animal&	Animal::operator=(const Animal& copy)
 	return (*this);
 }
 
-
-void		Animal::makeSound() const
-{
-	std::cout << "I can't breathe\n";
-}
-
 std::string	Animal::getType() const
 {
 	return (this->_type);

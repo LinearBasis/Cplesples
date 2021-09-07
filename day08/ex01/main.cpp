@@ -21,16 +21,9 @@ int	main()
 
 
 	Span	span;
-	std::map<int, int>	b;
 
-	b.
-
-	// span.addNumber(a.begin(), a.end());
 	unsigned int	start_time = clock();
-	for (size_t i = 0; i < a.size(); i++)
-	{
-		span.addNumber(a[i]);
-	}
+	span.addNumber(a.begin(), a.end());
 	std::cout << span.longestSpan() << std::endl;
 	std::cout << span.shortestSpan() << std::endl;
 	unsigned int	end_time = clock();

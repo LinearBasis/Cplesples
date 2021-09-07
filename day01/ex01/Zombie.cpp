@@ -20,6 +20,11 @@ void	Zombie::announce(void)
 	std::cout << _name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
+void	Zombie::setName(std::string name)
+{
+	this->_name = name;
+}
+
 Zombie* zombieHorde( int N, std::string name )
 {
 	Zombie	*zombizz = new Zombie[N];
@@ -29,9 +34,4 @@ Zombie* zombieHorde( int N, std::string name )
 		zombizz[i].setName(name);
 	}
 	return (zombizz);
-}
-
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
 }

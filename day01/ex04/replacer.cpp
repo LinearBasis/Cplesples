@@ -6,15 +6,17 @@
 
 std::string	replace_helper(std::string str, std::string from, std::string to)
 {
+	size_t a;
 	for (size_t i = 0; i < str.size(); i++)
 	{
 		// std::cout << i << " : ";
 		// std::cout << str << std::endl;
-		if (!strncmp(str.c_str() + i, from.c_str(), from.size()))
+		if ((a = str.find(from, i)) != std::string::npos)
 		{
-			str.erase(i, from.size());
-			str.insert(i, to);
-			i += (to.size() - 1);
+			// std::cout << "found at " << a << std::endl; 
+			str.erase(a, from.size());
+			str.insert(a, to);
+			i = a + to.size();
 		}
 	}
 	return (str);
@@ -37,7 +39,6 @@ void	replace(std::string filename, std::string s1, std::string s2)
 		ans += tmp;
 		ans += "\n";
 	}
-	std::cout << ans << std::endl;
 	ans = replace_helper(ans, s1, s2);
 
 	fin.close();

@@ -2,7 +2,11 @@
 
 std::ostream&	operator<<(std::ostream& out, const Form& form)
 {
-	out << form.getName();
+	out << form.getName() << ":" << form.getGradeToSign() << ":"
+		<< form.getGradeToExec() << " ";
+	if (!form.getIsSigned())
+		out << "not ";
+	out << "signed";
 	return (out);
 }
 

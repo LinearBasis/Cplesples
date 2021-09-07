@@ -2,7 +2,7 @@ NAME = zzz
 
 MAIN = main.cpp
 
-CC = g++
+CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
