@@ -2,64 +2,77 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
+#include <stdexcept>
 
-template <class T, std::size_t N>
+template <class T>
 class Array
 {
 private:
 	T*		_arr;
+	size_t	_size;
 public:
-	Array();
+	Array(size_t size = 0);
 	Array(const Array& copy);
 	~Array();
 	
 	Array&		operator=(const Array& copy);
-	T&			operator[](size_t index);
-	const T&	operator[](size_t index) const;
+	T&			operator[](int index);
+	const T&	operator[](int index) const;
 };
 
-template <class T, std::size_t N>
-Array<T, N>::Array()
+template <class T>
+Array<T>::Array(size_t size)
 {
-	this->_arr = new T[N];
+	if (size == 0)
+		this->_arr = nullptr;
+	else
+		this->_arr = new T[size];
+	this->_size = size;
 }
 
-template <class T, std::size_t N>
-Array<T, N>::Array(const Array& copy)
+template <class T>
+Array<T>::Array(const Array& copy)
 {
-	_arr = new T[N];
-	for (size_t i = 0; i < N; i++)
+	this->_size = copy._size;
+	this->_arr = new T[this->_size];
+	for (size_t i = 0; i < this->_size; i++)
 	{
 		this->_arr[i] = copy[i];
 	}
 }
 
-template <class T, std::size_t N>
-Array<T, N>::~Array()
+template <class T>
+Array<T>::~Array()
 {
-	delete[] this->_arr;
+	if (this->_arr)
+		delete[] this->_arr;
 }
 
-template <class T, std::size_t N>
-Array<T, N>&	Array<T, N>::operator=(const Array& copy)
+template <class T>
+Array<T>&	Array<T>::operator=(const Array& copy)
 {
 	if (this == &copy)
 		return (*this);
-	for (size_t i = 0; i < N; i++)
+	for (size_t i = 0; i < this->_size; i++)
 	{
 		this->_arr[i] = copy[i];
 	}
 	return (*this);
 }
 
-template <class T, std::size_t N>
-T&			Array<T, N>::operator[](size_t index)
+template <class T>
+T&			Array<T>::operator[](int index)
 {
+	if (index < 0 || index >= (int)_size)
+		throw std::invalid_argument("bad index");
 	return (this->_arr[index]);
 }
 
-template <class T, std::size_t N>
-const T&	Array<T, N>::operator[](size_t index) const
+template <class T>
+const T&	Array<T>::operator[](int index) const
 {
+	if (index < 0 || index >= (int)_size)
+		throw std::invalid_argument("bad index");
 	return (this->_arr[index]);
 }

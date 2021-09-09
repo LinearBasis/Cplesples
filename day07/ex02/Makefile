@@ -1,6 +1,5 @@
 NAME = game
 
-MAIN = main.cpp
 
 CC = clang++
 
@@ -25,7 +24,7 @@ $(OBJS_DIR)/%.o: %.cpp $(HDRS)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(MAIN)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
