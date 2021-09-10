@@ -6,6 +6,8 @@ int		main(int argc, char *argv[])
 		return (0);
 	Converter conv;
 
+	std::cout.precision(1);
+	std::cout << std::fixed;
 	try
 	{
 		std::cout << "char: " << std::string("\'") + conv.toChar(argv[1]) + "\'" << std::endl;
