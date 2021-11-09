@@ -1,8 +1,16 @@
 #pragma once
 #include <iostream>
 
+namespace a
+{
+	void	b()
+	{
+
+	}
+}
+
 template <class T>
-void	iter(T* arr, size_t len, void (*f)(T))
+void	iter(T* arr, size_t len, void (*f)(T const &))
 {
 	if (!arr)
 		throw std::invalid_argument("nullptr array");

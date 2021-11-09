@@ -22,7 +22,7 @@ T&		max(T& a, T& b)
 template <class T>
 T&		min(T& a, T& b)
 {
-	if (a < b)
+	if (a <= b)
 		return (a);
 	return (b);
 }
