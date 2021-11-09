@@ -8,6 +8,8 @@
 class Span
 {
 private:
+	size_t	_size;
+	size_t	_max_size;
 	size_t	_shortestSpan;
 	size_t	_longestSpan;
 	std::map<int, int>	_numbers;
@@ -15,7 +17,7 @@ private:
 	void	_recalculate(std::map<int, int>::iterator added_number);
 
 public:
-	Span();
+	Span(size_t size);
 	Span(const Span& copy);
 	~Span();
 	
@@ -29,14 +31,18 @@ public:
 	size_t	longestSpan() const;
 };
 
-Span::Span()
+Span::Span(size_t size)
 {
+	this->_max_size = size;
+	this->_size = 0;
 	this->_longestSpan = 0;
 	this->_shortestSpan = SIZE_T_MAX;
 }
 
 Span::Span(const Span& copy)
 {
+	this->_max_size = copy._max_size;
+	this->_size = copy._size;
 	this->_numbers = copy._numbers;
 	this->_longestSpan = copy._longestSpan;
 	this->_shortestSpan = copy._shortestSpan;
@@ -51,6 +57,8 @@ Span&	Span::operator=(const Span& copy)
 {
 	if (this == &copy)
 		return (*this);
+	this->_size = copy._size;
+	this->_max_size = copy._max_size;
 	this->_numbers = copy._numbers;
 	this->_longestSpan = copy._longestSpan;
 	this->_shortestSpan = copy._shortestSpan;
@@ -97,8 +105,10 @@ void	Span::_recalculate(std::map<int, int>::iterator added_number)
 
 void	Span::addNumber(int n)
 {
-	this->_numbers[n] = this->_numbers[n] + 1;
-	// std::cout << n << " added to map" << std::endl;
+	if (this->_size >= this->_max_size)
+		throw std::logic_error("cannot add number, span overflow");
+	this->_numbers[n] += 1;
+	this->_size++;
 	this->_recalculate(this->_numbers.find(n));
 }
 
